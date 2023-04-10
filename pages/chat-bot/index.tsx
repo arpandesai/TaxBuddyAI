@@ -4,17 +4,15 @@ import { Message } from '@/types/chat';
 import { fetchEventSource } from '@microsoft/fetch-event-source';
 import LoadingDots from '@/components/ui/LoadingDots';
 import { Document } from 'langchain/document';
-import axios from 'axios';
 import { useUser } from '@clerk/nextjs';
-import Sidebar from '@/src/components/Sidebar';
-import Send from '../../src/img/send.png';
-import Image from 'next/image';
-import Router from 'next/router';
-import LogoutIcon from '../../src/img/Shape.svg';
-import FaqIcon from '../../src/img/Vector.svg';
-import ExaIcon from '../../src/img/4.svg';
 import { useClerk } from '@clerk/clerk-react';
 import Link from 'next/link';
+import {
+  BiLogOut,
+  BiTone,
+  BiRadar,
+} from 'react-icons/bi';
+import GuidlineBox from '@/src/components/GuidlineBox';
 
 export default function Home() {
   const [query, setQuery] = useState<string>('');
@@ -220,12 +218,27 @@ export default function Home() {
             <ul className="space-y-2">
               <li>
                 <div className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg">
-                  <div className="flex items-center justify-between w-64">
-                    <h1 className="mb-4 text-4xl pl-8 font-extrabold flex items-center justify-center text-gray-900 md:text-4xl lg:text-4xl">
-                      <span className="text-[#EDF4F4] pl-2 text-[24px]">
-                        TaxGPT - Your AI Tax Buddy
-                      </span>
+                  <div className="flex items-start justify-between w-64 flex-col">
+                    <h1 className="mb-4 mx-2 text-center font-extrabold flex items-center justify-center text-gray-900 md:text-4xl lg:text-4xl">
+                      <li>
+                        <div
+                          style={{
+                            boxShadow: '2px 2px 4px rgba(0, 0, 0, 0.18)',
+                            borderRadius: '0px 16px 16px 0px',
+                          }}
+                          className={`flex items-center bg-black p-2 mr-0 hover:bg-black`}
+                        >
+                          <span className="text-[#EDF4F4] text-[20px]">
+                            TaxGPT - Your AI Tax Buddy
+                          </span>
+                        </div>
+                      </li>
                     </h1>
+                    <div className="flex items-center text-[#EDF4F4] mx-4 text-[18px] font-bold mt-10 cursor-pointer">
+                      <span className="ml-0">
+                        <GuidlineBox />
+                      </span>
+                    </div>
                   </div>
                 </div>
               </li>
@@ -244,15 +257,13 @@ export default function Home() {
               <li>
                 <Link
                   href="/"
-                  className={`flex cursor-pointer items-center p-4 pl-8 mr-8`}
+                  className={`flex items-center text-[#EDF4F4] mx-6 text-[18px] font-bold mt-10 cursor-pointer`}
                   onClick={() => signOut()}
                 >
                   <div>
-                    <Image src={LogoutIcon} alt="logout" />
+                    <BiLogOut color="white" />
                   </div>
-                  <span className="text-[#A4B0B4] pl-2 text-[16px]">
-                    Logout
-                  </span>
+                  <span className="text-[white] pl-2">Logout</span>
                 </Link>
               </li>
             </ul>
@@ -265,8 +276,9 @@ export default function Home() {
         {/* chatbot start */}
         <div className="bg-black relative lg:h-screen lg:ml-64 h-[94vh]">
           <div className=" bg-black p-[24px]">
-            <div className="bg-[#2C2C2C] rounded-[16px] p-[24px]">
-              <div className="text-white">
+            <div className="bg-[#2C2C2C] flex items-center rounded-[16px] p-[24px]">
+              <BiTone color="white" />
+              <div className="text-white ml-2">
                 {`I’m Basis, your AI powered accountant assistant. Short introduction
             what it is...`}
               </div>
@@ -278,7 +290,12 @@ export default function Home() {
                     <>
                       <div className="bg-[#2C2C2C] rounded-[16px] p-[24px] mt-4">
                         <div className="text-white">
-                          {idx % 2 !== 0 ? <div>{message.message}</div> : null}
+                          {idx % 2 !== 0 ? (
+                            <div className="flex items-center">
+                              <BiRadar color="white" className="mr-2" />
+                              {message.message}
+                            </div>
+                          ) : null}
                           {idx % 2 == 0 ? (
                             <div className="text-[#A4B0B4;] bg-black rounded-[4px] p-2 mt-4">
                               {message.message}
