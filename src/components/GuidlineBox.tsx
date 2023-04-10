@@ -28,7 +28,7 @@ const GuidlineBox = () => {
       <Button onClick={handleOpen}>
         <BiBookOpen color="white" size="16px" /> &nbsp;
         <p className="flex items-center text-[#EDF4F4] text-[16px] font-bold cursor-pointer">
-          Open modal
+          Guidelines
         </p>
       </Button>
       <Modal
