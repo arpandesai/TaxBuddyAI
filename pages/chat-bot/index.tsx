@@ -308,7 +308,7 @@ export default function Home() {
                     name="userInput"
                     placeholder={
                       loading
-                        ? 'Waiting for response...'
+                        ? 'Waiting for response.....'
                         : 'Enter a prompt here'
                     }
                     value={query}
