@@ -85,5 +85,5 @@ In general, keep an eye out in the `issues` and `discussions` section of this re
 - Check that you've set the vector dimensions to `1536`.
 - Make sure your pinecone namespace is in lowercase.
 - Pinecone indexes of users on the Starter(free) plan are deleted after 7 days of inactivity. To prevent this, send an API request to Pinecone to reset the counter.
-- Retry from scratch with a new Pinecone index and cloned repo.
+- Retry from scratch with a new Pinecone index and cloned repo..
 
