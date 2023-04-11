@@ -43,8 +43,6 @@ const Home = () => {
             </SignOutButton>
           </div>
           <div className="absolute bottom-0 w-screen">
-            {/* <footer className="bg-white rounded-lg shadow dark:bg-gray-900"> */}
-            {/* <div className="w-full max-w-screen-xl mx-auto p-4 md:py-8"> */}
             <span className="block mx-auto p-4 md:py-6 font-bold text-sm text-gray-500 sm:text-center dark:text-gray-400">
               © 2023{' '}
               <Link
@@ -56,8 +54,6 @@ const Home = () => {
               </Link>
               . All Rights Reserved.
             </span>
-            {/* </div> */}
-            {/* </footer> */}
           </div>
         </div>
       </section>
