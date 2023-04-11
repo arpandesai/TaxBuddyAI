@@ -31,8 +31,11 @@ const GuidlineBox = () => {
   return (
     <div>
       <Button onClick={handleOpen}>
-        <BiBookOpen color="white" size="16px" /> &nbsp;
-        <p className="flex items-center text-[#EDF4F4] text-[16px] font-bold cursor-pointer">
+        <BiBookOpen color="white" size="24px" /> &nbsp;
+        <p
+          className="flex items-center text-[#EDF4F4] text-[16px] font-bold cursor-pointer"
+          style={{ textTransform: 'capitalize' }}
+        >
           Guidelines
         </p>
       </Button>
@@ -56,7 +59,7 @@ const GuidlineBox = () => {
                 return (
                   <div key={idx}>
                     <div className="mt-4 flex items-start">
-                      <div className='mt-[5px]'>
+                      <div className="mt-[5px]">
                         <BiRightArrowAlt />
                       </div>
                       <div>
