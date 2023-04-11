@@ -4,25 +4,30 @@ import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
 import { BiBookOpen, BiXCircle, BiRightArrowAlt } from 'react-icons/bi';
 import { guidlines } from '../data/guidline';
-
-const style = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  width: '70vw',
-  height: '70vh',
-  overflow: 'auto',
-  bgcolor: 'background.paper',
-  border: '2px solid #000',
-  boxShadow: 24,
-  p: 4,
-};
+import { useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 const GuidlineBox = () => {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = React.useState(true);
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.up('lg'));
+
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  console.log(matches, 'matches');
+  const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: `${matches ? '70vw' : '90vw'}`,
+    height: '70vh',
+    overflow: 'auto',
+    bgcolor: 'background.paper',
+    border: '2px solid #000',
+    boxShadow: 24,
+    p: 4,
+  };
   return (
     <div>
       <Button onClick={handleOpen}>
@@ -50,15 +55,15 @@ const GuidlineBox = () => {
               {guidlines.map((data, idx) => {
                 return (
                   <div key={idx}>
-                    <div className="mt-4 flex items-center">
-                      <BiRightArrowAlt />
-                      <p className="ml-2">
-                        Please use numbers instead of words in TaxGPT.
-                      </p>
+                    <div className="mt-4 flex items-start">
+                      <div className='mt-[5px]'>
+                        <BiRightArrowAlt />
+                      </div>
+                      <div>
+                        <p className="font-semibold">{data?.text}</p>
+                        <p className="">{data?.subText}</p>
+                      </div>
                     </div>
-                    <p className="ml-6">
-                      Example :- use 2,00,000 instand of 200 thousand or 2 lakh
-                    </p>
                   </div>
                 );
               })}
