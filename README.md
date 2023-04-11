@@ -88,4 +88,3 @@ In general, keep an eye out in the `issues` and `discussions` section of this re
 - Retry from scratch with a new Pinecone index and cloned repo..
 
 
-..................
