@@ -12,7 +12,7 @@ const Home = () => {
           <Image src={Logo} alt="logo" />
         </div>
         <div className="relative text-center flex items-center justify-center flex-col h-screen text-gray-800">
-          <h1 className="-mt-10 text-5xl md:text-6xl xl:text-7xl font-bold tracking-tight mb-12 text-[#cc34eb]">
+          <h1 className="-mt-10 text-5xl md:text-6xl xl:text-7xl font-bold tracking-tight mb-12">
             Please sign in to experience
             <br />
             <div className="mt-4"></div>
