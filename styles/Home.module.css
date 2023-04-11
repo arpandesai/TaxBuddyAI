@@ -37,8 +37,8 @@
 
 .textarea:focus {
   outline: none;
-  border-color: #6b7280; 
-   box-shadow: 0 0 0 3px rgba(156, 163, 175, 0.5); 
+  border-color: #6b7280;
+  box-shadow: 0 0 0 3px rgba(156, 163, 175, 0.5);
 }
 
 .textarea::placeholder {
@@ -246,7 +246,6 @@
   opacity: 0.8;
 }
 
-
 @media (max-width: 600px) {
   .main {
     padding: 1rem;
@@ -281,3 +280,4 @@
     text-align: center;
   }
 }
+

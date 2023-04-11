@@ -7,7 +7,16 @@ import { Document } from 'langchain/document';
 import { useUser } from '@clerk/nextjs';
 import { useClerk } from '@clerk/clerk-react';
 import Link from 'next/link';
-import { BiLogOut, BiTone, BiRadar, BiXCircle } from 'react-icons/bi';
+import {
+  BiLogOut,
+  BiTone,
+  BiRadar,
+  BiXCircle,
+  BiLinkExternal,
+  BiDockLeft,
+  BiCodeBlock,
+  BiIntersect,
+} from 'react-icons/bi';
 import GuidlineBox from '@/src/components/GuidlineBox';
 
 export default function Home() {
@@ -232,16 +241,33 @@ export default function Home() {
                         </div>
                       </li>
                     </h1>
-                    <div className="flex items-center text-[#EDF4F4] mx-4 text-[18px] font-bold mt-10 cursor-pointer">
-                      <span className="ml-0">
+                    <div className="flex items-start flex-col text-[#EDF4F4] mx-4 text-[18px] font-bold mt-10">
+                      <span className="-ml-[5px] cursor-pointer">
                         <GuidlineBox />
                       </span>
+                      <div className="flex items-start justify-start">
+                        <div className="mt-0">
+                          <BiLinkExternal color="white" size="24px" />
+                        </div>
+                        <div className="ml-2">
+                          <p className="text-[16px] mb-0">
+                            {` If you are looking to build AI solution or want to help building open-source AI models, please visit`}
+                          </p>
+                          <Link
+                            href="https://unitaslink.com"
+                            target="_blanck"
+                            className="underline underline-offset-4 text-[16px]"
+                          >
+                            https://unitaslink.com
+                          </Link>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </li>
             </ul>
-            <ul className="space-y-2">
+            <ul className="absolute bottom-8 lg:bottom-6 space-y-2">
               <li>
                 <div className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg">
                   <div className="flex items-center justify-between w-64">
@@ -251,15 +277,54 @@ export default function Home() {
                   </div>
                 </div>
               </li>
-
+              <li>
+                <Link
+                  href="https://discord.com/invite/5CzBjMus"
+                  className={`flex items-center text-[#EDF4F4] mx-6 text-[16px] font-bold cursor-pointer`}
+                  target="_blanck"
+                >
+                  <div>
+                    <BiIntersect color="white" size="26px" />
+                  </div>
+                  <span className="text-[white] pl-2">Join our discord</span>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="https://github.com/arpandesai/TaxBuddyAI"
+                  className={`flex items-start text-[#EDF4F4] mx-6 text-[16px] font-bold cursor-pointer`}
+                  target="_blanck"
+                >
+                  <div className="mt-[2px]">
+                    <BiCodeBlock color="white" size="24px" />
+                  </div>
+                  <span className="text-[white] pl-2">
+                    Contribute to our Open Source code
+                  </span>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="https://github.com/arpandesai/TaxBuddyAI/tree/main/docs"
+                  className={`flex items-start text-[#EDF4F4] mx-6 text-[16px] font-bold cursor-pointer`}
+                  target="_blanck"
+                >
+                  <div className="mt-[2px]">
+                    <BiDockLeft color="white" size="24px" />
+                  </div>
+                  <span className="text-[white] pl-2">
+                    Contribute to training data set
+                  </span>
+                </Link>
+              </li>
               <li>
                 <Link
                   href="/"
-                  className={`flex items-center text-[#EDF4F4] mx-6 text-[18px] font-bold mt-10 cursor-pointer`}
+                  className={`flex items-center text-[#EDF4F4] mx-6 text-[16px] font-bold cursor-pointer`}
                   onClick={() => signOut()}
                 >
                   <div>
-                    <BiLogOut color="white" />
+                    <BiLogOut color="white" size="24px" />
                   </div>
                   <span className="text-[white] pl-2">Logout</span>
                 </Link>
@@ -286,14 +351,6 @@ export default function Home() {
                   className="underline underline-offset-4"
                 >
                   https://unitaslink.com.
-                </Link>
-                {` If you are looking to build AI solution or want to help building open-source AI models, please visit`}{' '}
-                <Link
-                  href="https://unitaslink.com"
-                  target="_blanck"
-                  className="underline underline-offset-4"
-                >
-                  https://unitaslink.com
                 </Link>
               </div>
             </div>
