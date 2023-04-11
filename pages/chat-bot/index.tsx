@@ -7,11 +7,7 @@ import { Document } from 'langchain/document';
 import { useUser } from '@clerk/nextjs';
 import { useClerk } from '@clerk/clerk-react';
 import Link from 'next/link';
-import {
-  BiLogOut,
-  BiTone,
-  BiRadar,
-} from 'react-icons/bi';
+import { BiLogOut, BiTone, BiRadar, BiXCircle } from 'react-icons/bi';
 import GuidlineBox from '@/src/components/GuidlineBox';
 
 export default function Home() {
@@ -210,9 +206,11 @@ export default function Home() {
         <div className="relative h-full px-3 py-4 overflow-hidden bg-[#2C2C2C]">
           <div
             onClick={sidebar}
-            className="absolute right-4 top-6 inline-flex lg:hidden items-center justify-center w-3 h-3 p-3 ml-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-full"
+            className="absolute right-4 top-6 inline-flex lg:hidden items-center justify-center w-3 h-3 p-3 ml-3 text-sm font-medium rounded-full"
           >
-            <span className="-mt-[7px] text-2xl">x</span>
+            <span className="-mt-[7px] text-2xl">
+              <BiXCircle color="white" size="24px" />
+            </span>
           </div>
           <div className="flex items-center justify-between flex-col h-[90vh]">
             <ul className="space-y-2">
@@ -226,10 +224,10 @@ export default function Home() {
                             boxShadow: '2px 2px 4px rgba(0, 0, 0, 0.18)',
                             borderRadius: '0px 16px 16px 0px',
                           }}
-                          className={`flex items-center bg-black p-2 mr-0 hover:bg-black`}
+                          className={`flex items-center justify-center w-60 bg-black p-2 mt-10 lg:mt-0 hover:bg-black`}
                         >
                           <span className="text-[#EDF4F4] text-[20px]">
-                            TaxGPT - Your AI Tax Buddy
+                            Tax Buddy AI
                           </span>
                         </div>
                       </li>
@@ -276,11 +274,27 @@ export default function Home() {
         {/* chatbot start */}
         <div className="bg-black relative lg:h-screen lg:ml-64 h-[94vh]">
           <div className=" bg-black p-[24px]">
-            <div className="bg-[#2C2C2C] flex items-center rounded-[16px] p-[24px]">
-              <BiTone color="white" />
+            <div className="bg-[#2C2C2C] flex items-start rounded-[16px] p-[24px]">
+              <div className="mt-[5px]">
+                <BiTone color="white" />
+              </div>
               <div className="text-white ml-2">
-                {`I’m Basis, your AI powered accountant assistant. Short introduction
-            what it is...`}
+                {`I’m TaxBuddyAI, your AI powered tax assistant. I am developed by`}{' '}
+                <Link
+                  href="https://unitaslink.com"
+                  target="_blank"
+                  className="underline underline-offset-4"
+                >
+                  https://unitaslink.com.
+                </Link>
+                {` If you are looking to build AI solution or want to help building open-source AI models, please visit`}{' '}
+                <Link
+                  href="https://unitaslink.com"
+                  target="_blanck"
+                  className="underline underline-offset-4"
+                >
+                  https://unitaslink.com
+                </Link>
               </div>
             </div>
             {chatMessages.map((message, idx) => {
