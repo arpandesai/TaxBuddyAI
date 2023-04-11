@@ -8,7 +8,7 @@ import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
 const GuidlineBox = () => {
-  const [open, setOpen] = React.useState(true);
+  const [open, setOpen] = React.useState(false);
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up('lg'));
 
